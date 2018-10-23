@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from '../Home';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Login from '../Login';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Home />, div);
+  ReactDOM.render(
+    <Router>
+      <Login location={{state: {from: {}}}}/>
+    </Router>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
