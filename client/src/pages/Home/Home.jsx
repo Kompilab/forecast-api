@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 import Navbar from '../../components/Navbar';
 
 class Home extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       logoText: 'forecast',
@@ -26,7 +27,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Navbar title={logoText} />
+        <Navbar title={logoText} {...this.props} />
 
         <header>
           <div>
@@ -40,7 +41,9 @@ class Home extends Component {
             </div>
           </div>
 
-          <button>Get Started</button>
+          <Link to="/dashboard">
+            <button>Get Started</button>
+          </Link>
         </header>
 
         <div>
