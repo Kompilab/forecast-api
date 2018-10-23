@@ -14,15 +14,14 @@ class Auth extends Component {
   render() {
     const { match } = this.props;
     const authState = match.params.authState;
-    console.log("Auth props: ", authState);
 
     return (
       <div>
         <h2><Link to="/">forecast</Link></h2>
         
         {
-          authState == 'login' ? (
-            <Login />
+          authState === 'login' ? (
+            <Login {...this.props} />
           ) :  (
             <SignUp />
           )
