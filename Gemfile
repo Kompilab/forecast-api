@@ -26,6 +26,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# Devise JWT for API authentication
+gem 'devise-jwt'
+
 group :production, :development do
   # Use postgresql as the database for Active Record in production and development
   gem 'pg', '>= 0.18', '< 2.0'
