@@ -5,7 +5,8 @@ Rails.application.routes.draw do
                 path_names: { registration: 'register' },
                 defaults: { format: :json },
                 controllers: {
-                  registrations: 'registrations'
+                  registrations: 'registrations',
+                  sessions: 'sessions'
                 }
   end
 
