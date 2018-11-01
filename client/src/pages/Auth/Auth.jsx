@@ -23,7 +23,7 @@ class Auth extends Component {
           authState === 'login' ? (
             <Login {...this.props} />
           ) :  (
-            <SignUp />
+            <SignUp {...this.props} />
           )
         }
       </div>

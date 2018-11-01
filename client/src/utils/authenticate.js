@@ -4,7 +4,7 @@ import Cookie from 'universal-cookie';
 const cookie = new Cookie();
 
 const userAuth = {
-  isAuthenticated: false,
+  isAuthenticated: cookie.get('_fo_') && cookie.get('_fo_active_user_'),
   authenticate(cb) {
     const payload = {
       user: {
@@ -19,15 +19,33 @@ const userAuth = {
         return response.json()
       })
       .then(data => {
-        cookie.set('_fo_active_user_', data, { path: '/' });
+        cookie.set('_fo_active_user_', {
+          id: data.id,
+          email: data.email,
+          first_name: data.first_name,
+          last_name: data.last_name,
+          avatar: data.avatar
+        }, { path: '/' });
+        this.isAuthenticated = true
         cb();
       })
-      .catch(error => console.log('Login error - ', error))
+      .catch(error => console.log('ERROR:Login - ', error))
   },
   signOut(cb) {
-    this.isAuthenticated = false;
-    cookie.remove('_fo_');
-    setTimeout(cb, 100);
+    httpInterface.postData('/api/auth/sign_out', 'DELETE')
+      .then(response => {
+        if (response.ok) {
+          console.log(response)
+          cookie.remove('_fo_');
+          cookie.remove('_fo_active_user_');
+          this.isAuthenticated = false;
+          cb()
+        }
+        else {
+          throw new Error('Failed to sign out!')
+        }
+      })
+      .catch(error => console.log('ERROR:LogOut - ', error))
   }
 }
 

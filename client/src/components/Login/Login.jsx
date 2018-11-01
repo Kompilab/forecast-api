@@ -24,7 +24,7 @@ class Login extends Component {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const { redirectToReferrer } = this.state;
 
-    if (redirectToReferrer) {
+    if (redirectToReferrer || userAuth.isAuthenticated) {
       return <Redirect to={from} />
     }
 

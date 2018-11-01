@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import userAuth from '../../utils/authenticate';
 
 class SignUp extends Component {
   constructor(props) {
@@ -10,6 +11,12 @@ class SignUp extends Component {
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
+
+    if (userAuth.isAuthenticated) {
+      return <Redirect to={from} />
+    }
+
     return (
       <div>
         <div className="home-welcome">Sign Up</div>
