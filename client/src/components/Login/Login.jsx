@@ -8,39 +8,76 @@ class Login extends Component {
     super(props)
 
     this.state = {
-      redirectToReferrer: false
+      redirectToReferrer: false,
+      email: '',
+      password: '',
+      error: ''
     }
 
+    this.handleChange = this.handleChange.bind(this);
     this._login = this._login.bind(this);
   }
 
-  _login() {
-    userAuth.authenticate(() => {
-      this.setState({ redirectToReferrer: true })
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  _login(e) {
+    e.preventDefault();
+    userAuth.authenticate(this.state, (redirect, error='') => {
+      this.setState({
+        redirectToReferrer: redirect,
+        error: error
+      })
     })
   }
 
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
-    const { redirectToReferrer } = this.state;
+    const { redirectToReferrer, error } = this.state;
+
+    console.log(this.state)
 
     if (redirectToReferrer || userAuth.isAuthenticated) {
       return <Redirect to={from} />
     }
 
     return (
-      <div>
-        <div className="home-welcome">Login {from.pathname}</div>
+      <div className="auth-inner">
+        <h2>Sign In</h2>
+        <p>Don't have a forecast account? <Link to="/auth/sign-up">Sign up now</Link></p>
+
         {
           from.pathname === '/' ? null : (
             <p>You must log in</p>
           )
         }
 
-        <button onClick={this._login}>
-          Login now
-        </button>
-        <Link to="/auth/sign-up">Sign up</Link>
+        <p>{error && error.error}</p>
+
+        <form>
+          <div>
+            <label>Email</label>
+            <div>
+              <input type="email" name="email" onChange={this.handleChange} />
+            </div>
+          </div>
+
+          <div>
+            <label>Password</label>
+            <div>
+              <input type="password" name="password" onChange={this.handleChange} />
+            </div>
+          </div>
+
+          <div className="actions">
+            <button onClick={this._login}>
+              Login now
+            </button>
+          </div>
+        </form>
       </div>
     )
   }

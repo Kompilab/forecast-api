@@ -11,7 +11,6 @@ const httpInterface = {
     return fetch(url, {
       headers: headers
     })
-      .then(response => response.json())
   },
   postData(url, method, payload={}) {
     return fetch(url, {
