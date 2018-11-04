@@ -27,6 +27,7 @@ const userAuth = {
           avatar: resData.avatar
         }, { path: '/' });
 
+        this.isAuthenticated = true;
         cb(true);
       } else {
         cb(false, resData)
@@ -42,6 +43,7 @@ const userAuth = {
       if (response.ok) {
         cookie.remove('_fo_');
         cookie.remove('_fo_active_user_');
+        this.isAuthenticated = false;
         cb()
       } else {
         throw new Error('Failed to sign out!')
