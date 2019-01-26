@@ -31,11 +31,11 @@ class Home extends Component {
 
         <header className="container-fluid">
           <div className="row">
-            <div className="col">
+            <div className="col-sm">
               <p>How much have I spend this month?</p>
             </div>
 
-            <div className="col">
+            <div className="col-sm">
               <p>"The pessimist complains about the wind; the optimist expects it to change; the realist adjusts the sails."</p>
               <p>- William Arthur Ward</p>
             </div>
