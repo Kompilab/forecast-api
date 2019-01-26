@@ -29,21 +29,23 @@ class Home extends Component {
       <div>
         <Navbar title={logoText} {...this.props} />
 
-        <header>
-          <div>
-            <div>
+        <header className="container-fluid">
+          <div className="row">
+            <div className="col">
               <p>How much have I spend this month?</p>
             </div>
 
-            <div>
+            <div className="col">
               <p>"The pessimist complains about the wind; the optimist expects it to change; the realist adjusts the sails."</p>
               <p>- William Arthur Ward</p>
             </div>
           </div>
 
-          <Link to="/dashboard">
-            <button>Get Started</button>
-          </Link>
+          <div className="row justify-content-center">
+            <Link to="/dashboard">
+              <button className="btn btn-primary btn-fo-primary my-2 my-sm-0">Get Started</button>
+            </Link>
+          </div>
         </header>
 
         <div>
