@@ -1,0 +1,15 @@
+.btn {
+  border-radius: 0.125rem;
+}
+
+.btn-fo-primary {
+  background-color: #d26100;
+  border-color: #d26100;
+  color: #fff;
+}
+
+.btn-fo-primary:hover,
+.btn-fo-primary:not(:disabled):not(.disabled):active {
+  background-color: #A74D00;
+  border-color: #A74D00;
+}
