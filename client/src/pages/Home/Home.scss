@@ -1,5 +1,8 @@
+$primary: #00777f;
 $white: #fff;
 $grey-200: #e9ecef;
+$text: #313131;
+$footer: #393a3d;
 
 .header {
   background-image: url("../../assets/images/header-bg.jpg");
@@ -23,4 +26,54 @@ $grey-200: #e9ecef;
   background-size: contain;
   height: 500px;
   top: -60px;
+}
+
+section {
+  .section-title {
+    margin-bottom: 40px;
+
+    h2 {
+      // font-family: AvenirNext-Medium;
+      color: $text;
+      font-size: 1.5625rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+section.features {
+  padding: 0 20px 60px;
+}
+
+section.tired-taglines {
+  background: $primary;
+  padding: 40px 20px;
+
+  h3 {
+    // font-family: AvenirNext-Medium;
+    color: $white;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    color: $grey-200;
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
+
+footer {
+  background: $footer;
+  color: $grey-200;
+  padding: 40px 20px 10px;
+
+  .foot-logo {
+    font-size: 1.5625rem;
+  }
+
+  .copyright {
+    font-size: .875rem;
+    margin-top: 30px;
+  }
 }

@@ -12,11 +12,15 @@ class Home extends Component {
       features: [
         {
           name: 'Stay Organized',
-          summary: 'Monitor cash flow and stay on top of your finances'
+          summary: 'Monitor cash flow and stay on top of your finances.'
         },
         {
-          name: 'Stay Organized',
-          summary: 'Monitor cash flow and stay on top of your finances'
+          name: 'Budget, or not?',
+          summary: 'Easily create budgets you can actually stick to, and see how you’re spending your money.'
+        },
+        {
+          name: 'Run Diagnostics',
+          summary: 'Make better financial decisions by understanding your spending habit.'
         }
       ]
     }
@@ -62,26 +66,42 @@ class Home extends Component {
           </div>
         </section>
 
-        {
-          !!features.length && features.map((feature, $i) => {
-            return (
-              <div key={$i}>
-                <h4>{feature.name}</h4>
-                <p>{feature.summary}</p>
-              </div>
-            )
-          })
-        }
+        <section className="container features">
+          <div className="section-title text-center">
+            <h2>Features</h2>
+          </div>
 
-        <div>
-          <h3>Are you tired of running out of funds before the next paycheck?</h3>
-          <p>Take charge of your cash flow and better understand your spending habit</p>
-          <button>Get Started Now</button>
-        </div>
+          <div className="row">
+            {
+              !!features.length && features.map((feature, $i) => {
+                return (
+                  <div className="col-sm-4" key={$i}>
+                    <h4>{feature.name}</h4>
+                    <p>{feature.summary}</p>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </section>
 
-        <footer>
-          <p>{logoText}</p>
-          <p>&copy; 2018 Kompilab. All rights reserved.</p>
+        <section className="tired-taglines text-center">
+          <div className="section-tagline">
+           <h3>Are you tired of running out of funds before the next paycheck?</h3>
+          </div>
+
+          <p>Take charge of your cash flow and make better financial decisions by understanding your spending habit</p>
+
+          <div className="row justify-content-center">
+            <Link to="/dashboard">
+              <button className="btn btn-primary btn-fo-primary my-2 my-sm-0 btn-lg">Get Started Now</button>
+            </Link>
+          </div>
+        </section>
+
+        <footer className="text-center">
+          <p className="foot-logo">{logoText}</p>
+          <p className="copyright">&copy; 2019 Kompilab. All rights reserved.</p>
         </footer>
       </div>
     )
