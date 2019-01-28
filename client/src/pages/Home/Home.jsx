@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 import Navbar from '../../components/Navbar';
+import featureIcon from '../../assets/images/features-icon.png';
 
 class Home extends Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class Home extends Component {
               !!features.length && features.map((feature, $i) => {
                 return (
                   <div className="col-sm-4" key={$i}>
+                    <img src={featureIcon} alt="icon" className="img-fluid" />
                     <h4>{feature.name}</h4>
                     <p>{feature.summary}</p>
                   </div>
