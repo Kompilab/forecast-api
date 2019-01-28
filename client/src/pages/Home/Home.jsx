@@ -56,9 +56,11 @@ class Home extends Component {
           </div>
         </header>
 
-        <div>
-          floating image
-        </div>
+        <section className="container">
+          <div className="row justify-content-center">
+            <div className="float-bg col-md-9"></div>
+          </div>
+        </section>
 
         {
           !!features.length && features.map((feature, $i) => {

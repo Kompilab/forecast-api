@@ -5,7 +5,7 @@ $grey-200: #e9ecef;
   background-image: url("../../assets/images/header-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 40px 40px 80px;
+  padding: 40px 40px 120px;
 
   .left-text {
     color: $white;
@@ -15,4 +15,12 @@ $grey-200: #e9ecef;
   .right-text {
     color: $grey-200;
   }
+}
+
+.float-bg {
+  background-image: url("../../assets/images/floating-img.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 500px;
+  top: -60px;
 }
