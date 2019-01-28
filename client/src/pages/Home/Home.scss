@@ -1,3 +1,18 @@
-.home-welcome {
-  color: blueviolet;
+$white: #fff;
+$grey-200: #e9ecef;
+
+.header {
+  background-image: url("../../assets/images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px 40px 80px;
+
+  .left-text {
+    color: $white;
+    font-size: 3.125rem;
+  }
+
+  .right-text {
+    color: $grey-200;
+  }
 }
