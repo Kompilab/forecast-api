@@ -12,14 +12,17 @@ class Home extends Component {
       logoText: 'forecast',
       features: [
         {
+          position: '01',
           name: 'Stay Organized',
           summary: 'Monitor cash flow and stay on top of your finances.'
         },
         {
-          name: 'Budget, or not?',
+          position: '02',
+          name: 'Budgeting',
           summary: 'Easily create budgets you can actually stick to, and see how you’re spending your money.'
         },
         {
+          position: '03',
           name: 'Run Diagnostics',
           summary: 'Make better financial decisions by understanding your spending habit.'
         }
@@ -63,7 +66,7 @@ class Home extends Component {
 
         <section className="container">
           <div className="row justify-content-center">
-            <div className="float-bg col-md-9"></div>
+            <div className="float-bg col-12"></div>
           </div>
         </section>
 
@@ -76,10 +79,22 @@ class Home extends Component {
             {
               !!features.length && features.map((feature, $i) => {
                 return (
-                  <div className="col-sm-4" key={$i}>
-                    <img src={featureIcon} alt="icon" className="img-fluid" />
-                    <h4>{feature.name}</h4>
-                    <p>{feature.summary}</p>
+                  <div className="col-sm-4 feature" key={$i}>
+                    <img src={featureIcon} alt="icon" className="img-fluid" width="80" />
+
+                    <div className="row align-items-center">
+                      <div className="col-2 position">
+                        <span>{feature.position}</span>
+                      </div>
+
+                      <div className="col-10 name">
+                        <h4>{feature.name}</h4>
+                      </div>
+                    </div>
+
+                    <div className="summary">
+                      <p>{feature.summary}</p>
+                    </div>
                   </div>
                 )
               })

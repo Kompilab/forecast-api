@@ -26,6 +26,37 @@ $footer: #393a3d;
   background-size: contain;
   height: 500px;
   top: -60px;
+
+  @media (max-width: 320px) {
+    height: 186px;
+    top: -30px;
+  }
+
+  @media (min-width: 321px) and (max-width: 420px) {
+    height: 246px;
+    top: -30px;
+  }
+
+  @media (min-width: 421px) and (max-width: 575.98px) {
+    height: 326px;
+    top: -30px;
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    height: 312px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    height: 416px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    height: 552px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 658px;
+  }
 }
 
 section {
@@ -33,7 +64,6 @@ section {
     margin-bottom: 40px;
 
     h2 {
-      // font-family: AvenirNext-Medium;
       color: $text;
       font-size: 1.5625rem;
       text-transform: uppercase;
@@ -43,6 +73,25 @@ section {
 
 section.features {
   padding: 0 20px 60px;
+
+  .feature {
+    .position {
+      color: #dddedf;
+      font-size: 2.1875rem;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .name h4 {
+      color: #003059;
+      font-size: 1.125rem;
+    }
+
+    .summary {
+      color: #7c8595;
+      font-size: 1rem;
+    }
+  }
 }
 
 section.tired-taglines {
@@ -50,7 +99,6 @@ section.tired-taglines {
   padding: 40px 20px;
 
   h3 {
-    // font-family: AvenirNext-Medium;
     color: $white;
     margin-bottom: 20px;
     text-align: center;
