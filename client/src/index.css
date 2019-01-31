@@ -12,3 +12,24 @@
 @font-face{font-family:Octicons;font-style:normal;font-weight:400;src:url(../node_modules/react-web-vector-icons/fonts/Octicons.ttf) format('truetype')}
 @font-face{font-family:SimpleLineIcons;font-style:normal;font-weight:400;src:url(../node_modules/react-web-vector-icons/fonts/SimpleLineIcons.ttf) format('truetype')}
 @font-face{font-family:Zocial;font-style:normal;font-weight:400;src:url(../node_modules/react-web-vector-icons/fonts/Zocial.ttf) format('truetype')}
+
+@font-face {
+  font-family: 'AvenueX';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/AvenueX/AvenueX-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/Avenir\ Next/AvenirNextLTPro-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  font-style: italic;
+  font-weight: normal;
+  src: url(./assets/fonts/Avenir\ Next/AvenirNextLTPro-It.otf) format('opentype');
+}
