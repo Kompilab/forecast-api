@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-web-vector-icons/fonts';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
