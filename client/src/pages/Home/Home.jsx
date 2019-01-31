@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 import Navbar from '../../components/Navbar';
-import featureIcon from '../../assets/images/features-icon.png';
+import Icon from 'react-web-vector-icons';
 
 class Home extends Component {
   constructor(props) {
@@ -14,16 +14,22 @@ class Home extends Component {
         {
           position: '01',
           name: 'Stay Organized',
+          icon: 'organization',
+          font: 'SimpleLineIcons',
           summary: 'Monitor cash flow and stay on top of your finances.'
         },
         {
           position: '02',
           name: 'Budgeting',
+          icon: 'calculator',
+          font: 'SimpleLineIcons',
           summary: 'Easily create budgets you can actually stick to, and see how you’re spending your money.'
         },
         {
           position: '03',
           name: 'Run Diagnostics',
+          icon: 'dotchart',
+          font: 'AntDesign',
           summary: 'Make better financial decisions by understanding your spending habit.'
         }
       ]
@@ -80,7 +86,13 @@ class Home extends Component {
               !!features.length && features.map((feature, $i) => {
                 return (
                   <div className="col-sm-4 feature" key={$i}>
-                    <img src={featureIcon} alt="icon" className="img-fluid" width="80" />
+                    <Icon
+                      font={feature.font}
+                      name={feature.icon}
+                      color='#007ACC'
+                      size={60}
+                      // style={{}}
+                    />
 
                     <div className="row align-items-center">
                       <div className="col-2 position">
