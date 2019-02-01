@@ -18,7 +18,7 @@ class SignUp extends Component {
     }
 
     return (
-      <div>
+      <div className="auth-sign-up">
         <div className="home-welcome">Sign Up</div>
         <Link to="/auth/login">login</Link>
       </div>

@@ -14,3 +14,8 @@
   background-color: #A74D00;
   border-color: #A74D00;
 }
+
+.btn-fo-primary:focus {
+  box-shadow: 0 0 0 0.1rem rgba(210, 97, 0, .1);
+  outline: 0;
+}
