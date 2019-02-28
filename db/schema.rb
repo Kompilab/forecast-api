@@ -10,10 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_165055) do
+ActiveRecord::Schema.define(version: 2019_02_26_200356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "category_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "event_name"
+    t.text "description"
+    t.date "event_date"
+    t.string "event_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "financial_transactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.string "item"
+    t.text "details"
+    t.float "amount"
+    t.string "transaction_type"
+    t.date "transaction_date"
+    t.boolean "deleted", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_financial_transactions_on_category_id"
+    t.index ["user_id"], name: "index_financial_transactions_on_user_id"
+  end
+
+  create_table "shopquiks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.string "item"
+    t.integer "quantity"
+    t.float "amount"
+    t.text "details"
+    t.string "status"
+    t.datetime "last_status_update"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_shopquiks_on_category_id"
+    t.index ["user_id"], name: "index_shopquiks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
