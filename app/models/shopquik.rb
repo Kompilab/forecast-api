@@ -1,0 +1,2 @@
+class Shopquik < ApplicationRecord
+end
