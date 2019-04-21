@@ -18,7 +18,7 @@ class Auth extends Component {
     return (
       <div className="auth container-fluid">
         <div className="auth-header">
-          <h2><Link to="/">forecast</Link></h2>
+          <h2 className="logo-text"><Link to="/">forecast</Link></h2>
         </div>
         
         <div className="row justify-content-center">

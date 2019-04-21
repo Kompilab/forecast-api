@@ -14,10 +14,17 @@
 @font-face{font-family:Zocial;font-style:normal;font-weight:400;src:url(../node_modules/react-web-vector-icons/fonts/Zocial.ttf) format('truetype')}
 
 @font-face {
-  font-family: 'AvenueX';
+  font-family: 'Italianno';
   font-style: normal;
   font-weight: normal;
-  src: url(./assets/fonts/AvenueX/AvenueX-Regular.otf) format('opentype');
+  src: url(./assets/fonts/Italianno/Italianno-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/Rajdhani/Rajdhani-Regular.ttf) format('truetype');
 }
 
 @font-face {

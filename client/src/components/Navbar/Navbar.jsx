@@ -18,7 +18,7 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/" id="logo-title" className="navbar-brand">
+        <Link to="/" id="logo-title" className="navbar-brand logo-text">
           {title || titleOverride}
         </Link>
 
