@@ -127,7 +127,7 @@ class Login extends Component {
         </form>
 
         <div className="terms-thingy">
-          <p>By clicking Sign In, you agree to our Terms of Service and have read and acknowledge our Privacy Statement</p>
+          <p>By clicking Sign In, you agree to our Terms of Use and have read and acknowledge our Privacy Policy</p>
         </div>
 
         <div className="forgot-password">
