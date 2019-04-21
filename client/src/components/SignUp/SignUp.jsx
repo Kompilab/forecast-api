@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 import { Link, Redirect } from 'react-router-dom';
-import userAuth from '../../utils/authenticate';
+import userAuth from '../../services/authenticate';
 import Icon from 'react-web-vector-icons';
 
 class SignUp extends Component {
@@ -17,14 +17,49 @@ class SignUp extends Component {
       confirmPassword: '',
 
       loading: false,
-      errors: false,
-      errorMsg: null
+      errors: null
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this._signup = this._signup.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  _signup(e) {
+    this.setState({loading: true, errors: null});
+    e.preventDefault();
+
+    userAuth.signUp(this.prepData(this.state), (redirect, errors='') => {
+      this.setState({
+        errors: errors,
+        loading: false
+      })
+
+      if (redirect) {
+        // TODO redirect to email confirmation later
+      }
+    })
+  }
+
+  prepData(raw) {
+    return {
+      first_name: raw.firstName,
+      last_name: raw.lastName,
+      phone_number: raw.phoneNumber,
+      email: raw.email,
+      password: raw.password,
+      password_confirmation: raw.confirmPassword
     }
   }
 
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
-    const { errors, errorMsg, loading } = this.state;
+    const { errors, loading } = this.state;
     const errorClass = null;
 
     if (userAuth.isAuthenticated) {
@@ -38,7 +73,7 @@ class SignUp extends Component {
 
         <p>Take charge of your cash flow and better understand your spending habit.</p>
 
-        <p>{errors && errorMsg.error}</p>
+        <p>{errors && errors.error}</p>
 
         <form className="auth-form">
           <div className="form-group">
@@ -58,7 +93,7 @@ class SignUp extends Component {
           <div className="form-group">
             <label htmlFor="in-phonenumber">Phone Number</label>
             <div>
-              <input id="in-phonenumber" type="text" name="phoneNumber" className={`form-control ${errorClass}`} onChange={this.handleChange} />
+              <input id="in-phonenumber" type="number" name="phoneNumber" className={`form-control ${errorClass}`} onChange={this.handleChange} />
             </div>
           </div>
 
@@ -84,7 +119,7 @@ class SignUp extends Component {
           </div>
 
           <div className="actions">
-            <button onClick={this._login} className="btn btn-primary btn-fo-primary btn-block">
+            <button onClick={this._signup} className="btn btn-primary btn-fo-primary btn-block" disabled={loading}>
               {
                 loading ? (
                   <div>
@@ -106,10 +141,6 @@ class SignUp extends Component {
 
         <div className="terms-thingy">
           <p>By clicking Sign Up, you agree to our Terms of Service and have read and acknowledge our Privacy Statement</p>
-        </div>
-
-        <div className="forgot-password">
-          <Link to="/">I forgot my password</Link>
         </div>
       </div>
     )

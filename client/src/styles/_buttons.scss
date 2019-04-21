@@ -19,3 +19,8 @@
   box-shadow: 0 0 0 0.1rem rgba(210, 97, 0, .1);
   outline: 0;
 }
+
+.btn-fo-primary:disabled {
+  background-color: #8d9096;
+  border-color: #8d9096;
+}

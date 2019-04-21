@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.scss';
 import { Link, Redirect } from 'react-router-dom';
-import userAuth from '../../utils/authenticate';
+import userAuth from '../../services/authenticate';
 import Icon from 'react-web-vector-icons';
 
 class Login extends Component {
@@ -13,7 +13,7 @@ class Login extends Component {
       email: '',
       password: '',
       rememberMe: false,
-      error: '',
+      error: null,
       loading: false
     }
 
@@ -28,16 +28,23 @@ class Login extends Component {
   }
 
   _login(e) {
-    this.setState({loading: true})
-
+    this.setState({loading: true, error: null});
     e.preventDefault();
-    userAuth.authenticate(this.state, (redirect, error='') => {
+
+    userAuth.authenticate(this.prepData(this.state), (redirect, error='') => {
       this.setState({
         redirectToReferrer: redirect,
         error: error,
         loading: false
       })
     })
+  }
+
+  prepData(raw) {
+    return {
+      email: raw.email,
+      password: raw.password
+    }
   }
 
   render() {
@@ -99,7 +106,7 @@ class Login extends Component {
           </div>
 
           <div className="actions">
-            <button onClick={this._login} className="btn btn-primary btn-fo-primary btn-block">
+            <button onClick={this._login} className="btn btn-primary btn-fo-primary btn-block" disabled={loading}>
               {
                 loading ? (
                   <div>

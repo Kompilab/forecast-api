@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
-import userAuth from '../../utils/authenticate';
+import userAuth from '../../services/authenticate';
 
 class Navbar extends Component {
   constructor(props) {

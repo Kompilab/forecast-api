@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import userAuth from './utils/authenticate';
+import userAuth from './services/authenticate';
 
 import Auth from './pages/Auth';
 import Home from './pages/Home';
