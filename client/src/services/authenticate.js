@@ -4,8 +4,13 @@ import Cookie from 'universal-cookie';
 
 const cookie = new Cookie();
 
+const concatName = data => {
+  return data && `${data.first_name} ${data.last_name}`
+}
+
 const userAuth = {
   isAuthenticated: cookie.get('_fo_') && cookie.get('_fo_active_user_'),
+  authName: concatName(cookie.get('_fo_active_user_')),
   async authenticate(data, cb) {
     try {
       const payload = formatPayload(data);
@@ -25,6 +30,7 @@ const userAuth = {
         }, { path: '/' });
 
         this.isAuthenticated = true;
+        this.authName = concatName(resData);
         cb(true);
       } else {
         cb(false, resData)

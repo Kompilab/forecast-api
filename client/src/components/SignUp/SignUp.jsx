@@ -42,6 +42,8 @@ class SignUp extends Component {
 
       if (redirect) {
         // TODO redirect to email confirmation later
+        const { history } = this.props;
+        history.replace('/auth/login')
       }
     })
   }

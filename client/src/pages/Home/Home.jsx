@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 import Navbar from '../../components/Navbar';
 import Icon from 'react-web-vector-icons';
+import userAuth from '../../services/authenticate';
 
 class Home extends Component {
   constructor(props) {
@@ -65,7 +66,9 @@ class Home extends Component {
 
           <div className="row justify-content-center">
             <Link to="/dashboard">
-              <button className="btn btn-primary btn-fo-primary my-2 my-sm-0 btn-lg">Get Started</button>
+              <button className="btn btn-primary btn-fo-primary my-2 my-sm-0 btn-lg">
+                { userAuth.isAuthenticated ? 'My Dashboard' : 'Get Started' }
+              </button>
             </Link>
           </div>
         </header>

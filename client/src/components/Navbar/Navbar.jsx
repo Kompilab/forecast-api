@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import userAuth from '../../services/authenticate';
 
 class Navbar extends Component {
@@ -8,13 +8,21 @@ class Navbar extends Component {
     super(props)
 
     this.state = {
-      titleOverride: 'forecasting'
+      titleOverride: 'forecast'
     }
+
+    this._handleSignOut = this._handleSignOut.bind(this)
+  }
+
+  _handleSignOut(e) {
+    e.preventDefault();
+    const { history } = this.props;
+    userAuth.signOut(() => history.push('/'))
   }
 
   render() {
     const { titleOverride } = this.state;
-    const { title, history } = this.props;
+    const { title } = this.props;
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,12 +40,25 @@ class Navbar extends Component {
           {
             userAuth.isAuthenticated ? (
               <div>
-                <span className="navbar-text">
-                  Welcome home!
-                </span>
-                <button onClick={() => {userAuth.signOut(() => history.push('/'))}} className="btn btn-outline-danger my-2 my-sm-0 ml-2">
-                  Sign Out
-                </button>
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" activeClassName="active" to="/dashboard">Dashboard</NavLink>
+                  </li>
+                  <li className="nav-item dropdown">
+                    <button className="btn btn-light dropdown-toggle" type="button" id="navbarDropdownMenuLinks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hi, { userAuth.authName }
+                    </button>
+
+                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinks">
+                      <NavLink to="/profile" className="dropdown-item" activeClassName="active">Profile</NavLink>
+                      <NavLink to="/settings" className="dropdown-item" activeClassName="active">Settings</NavLink>
+                      <div className="dropdown-divider"></div>
+                      <Link to="/" onClick={this._handleSignOut} className="dropdown-item sign-out">
+                        Sign Out
+                      </Link>
+                    </div>
+                  </li>
+                </ul>
               </div>
             ) : (
               <div>
