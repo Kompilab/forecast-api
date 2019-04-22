@@ -18,10 +18,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'forecast@kompilab.com'
+  config.mailer_sender = 'kompilab.17@gmail.com'
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'ApplicationMailer'
+  config.mailer = 'AuthMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
