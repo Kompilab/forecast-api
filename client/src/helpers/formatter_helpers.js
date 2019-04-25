@@ -9,7 +9,7 @@ FormattersHelpers.formatErrors = (errors) => {
   return keys.map((key, i) => {
     return (
       <li key={i}>
-        { `${StringHelpers.capitalizeStr(key)} ${errors[key]}` }
+        { `${key === 'error' ? '' : StringHelpers.capitalizeStr(key)} ${errors[key]}` }
       </li>
     )
   })

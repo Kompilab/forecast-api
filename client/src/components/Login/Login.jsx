@@ -3,6 +3,7 @@ import './Login.scss';
 import { Link, Redirect } from 'react-router-dom';
 import userAuth from '../../services/authenticate';
 import Icon from 'react-web-vector-icons';
+import FormattersHelpers from '../../helpers/formatter_helpers';
 
 class Login extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class Login extends Component {
           )
         }
 
-        <p>{error && error.error}</p>
+        <p>{error && FormattersHelpers.formatErrors(error)}</p>
 
         <form className="auth-form">
           <div className="form-group">
