@@ -56,6 +56,20 @@ const userAuth = {
       console.log('ERROR:SignUp - ', error)
     }
   },
+  async confirmEmail(token, cb) {
+    try {
+      const response = await httpInterface.getData(apiRoutes.confirm(token).path);
+      const resData = await response.json();
+
+      if (response.ok) {
+        cb(true)
+      } else {
+        cb(false, resData)
+      }
+    } catch (error) {
+      console.log('ERROR:ConfirmEmail - ', error)
+    }
+  },
   async signOut(cb) {
     try {
       const signOutRoute = apiRoutes.signout();

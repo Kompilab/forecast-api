@@ -16,6 +16,12 @@ const apiRoutes = {
       method: 'DELETE',
       path: '/api/auth/sign_out'
     }
+  },
+  confirm: (token) => {
+    return {
+      method: 'GET',
+      path: `/api/auth/confirmation?confirmation_token=${token}`
+    }
   }
 }
 
