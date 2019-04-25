@@ -3,6 +3,7 @@ import './ConfirmEmail.scss';
 import { Link } from 'react-router-dom';
 import Icon from 'react-web-vector-icons';
 import userAuth from '../../services/authenticate';
+import FormattersHelpers from '../../helpers/formatter_helpers';
 
 class ConfirmEmail extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class ConfirmEmail extends Component {
         <h2>Confirm my Account</h2>
         <p><Link to="/auth/resend-confirmation">Resend confirmation email</Link></p>
 
-        <p>{ errors && `Confirmation token ${errors.confirmation_token}` }</p>
+        <ul>{ errors && FormattersHelpers.formatErrors(errors) }</ul>
 
         <form className="auth-form">
           <div className="form-group">
