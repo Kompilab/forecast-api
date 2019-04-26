@@ -4,6 +4,7 @@ import './Auth.scss';
 import Login from '../../components/Login';
 import SignUp from '../../components/SignUp';
 import ConfirmEmail from '../../components/ConfirmEmail';
+import ResendEmailConfirm from '../../components/ResendEmailConfirm';
 
 class Auth extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ class Auth extends Component {
           return <SignUp {...this.props} />
         case 'confirm':
           return <ConfirmEmail {...this.props} />
+        case 'resend-confirmation':
+          return <ResendEmailConfirm {...this.props} />
         default:
           return <Login {...this.props} />
       }

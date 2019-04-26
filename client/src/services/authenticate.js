@@ -70,6 +70,23 @@ const userAuth = {
       console.log('ERROR:ConfirmEmail - ', error)
     }
   },
+  async resendEmailConfirm(email, cb) {
+    try {
+      const payload = formatPayload({email});
+      const resentRoute = apiRoutes.resendConfirm();
+
+      const response = await httpInterface.postData(resentRoute.path, resentRoute.method, payload);
+      const resData = await response.json();
+
+      if (response.ok) {
+        cb(true)
+      } else {
+        cb(false, resData)
+      }
+    } catch (error) {
+      console.log('ERROR:ResendConfirmEmail - ', error)
+    }
+  },
   async signOut(cb) {
     try {
       const signOutRoute = apiRoutes.signout();

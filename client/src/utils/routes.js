@@ -22,6 +22,12 @@ const apiRoutes = {
       method: 'GET',
       path: `/api/auth/confirmation?confirmation_token=${token}`
     }
+  },
+  resendConfirm: () => {
+    return {
+      method: 'POST',
+      path: '/api/auth/confirmation'
+    }
   }
 }
 
