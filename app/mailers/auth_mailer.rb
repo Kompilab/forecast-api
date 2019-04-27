@@ -26,6 +26,14 @@ class AuthMailer < Devise::Mailer
       sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
       response = sg.client.mail._('send').post(request_body: mail.to_json)
     end
+
+    Events::Logger.new(
+      event_name: 'auth.confirmation_email.sent',
+      description: "Sent email confirmation to #{@user.first_name}, #{@user.email}",
+      event_date: Date.today,
+      event_type: 'email',
+      user_id: @user.id
+    ).log
   end
 
   private
