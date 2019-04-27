@@ -37,7 +37,7 @@ class Auth extends Component {
         </div>
         
         <div className="row justify-content-center">
-          <div className="auth-inner col-10 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+          <div className="auth-inner col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4">
             { switchComponents(authState) }
           </div>
         </div>
