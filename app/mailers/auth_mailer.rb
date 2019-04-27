@@ -33,7 +33,7 @@ class AuthMailer < Devise::Mailer
   def host
     env_hosts = {
       development: 'localhost:5000',
-      production: 'http://my-forecast.herokuapp.com'
+      production: 'https://my-forecast.herokuapp.com'
     }
 
     env_hosts[Rails.env.to_sym]
