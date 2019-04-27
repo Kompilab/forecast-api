@@ -17,4 +17,8 @@ Rails.application.routes.draw do
       # version 1 resources
     end
   end
+
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 end
