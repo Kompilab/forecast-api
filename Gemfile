@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Devise JWT for API authentication
 gem 'devise-jwt'
 
+# SendGrid email client
+gem 'sendgrid-ruby'
+
 group :production, :development do
   # Use postgresql as the database for Active Record in production and development
   gem 'pg', '>= 0.18', '< 2.0'
