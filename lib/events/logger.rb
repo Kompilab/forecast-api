@@ -11,7 +11,6 @@ module Events
     end
 
     def log
-      puts 'Got here'
       new_event = Event.new({
         event_name: event_name,
         description: description,
