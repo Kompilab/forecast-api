@@ -44,7 +44,7 @@ class Home extends Component {
       <div>
         <Navbar title={logoText} {...this.props} />
 
-        <header className="container-fluid header">
+        <header className="container-fluid home-header">
           <div className="row align-items-center">
             <div className="col-sm left-text">
               <div className="row">
