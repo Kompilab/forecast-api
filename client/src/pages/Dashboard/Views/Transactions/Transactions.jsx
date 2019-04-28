@@ -58,6 +58,14 @@ class Transactions extends Component {
               </div>
             </div>
           </div>
+
+          <div className="add-transaction">
+            Add tx form
+          </div>
+
+          <div className="transactions-list">
+            Display all transactions, remember to paginate
+          </div>
         </section>
       </div>
     )
