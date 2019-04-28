@@ -1,3 +1,14 @@
-.home-welcome {
-  color: blueviolet;
+.dashboard {
+  padding: 1rem;
+
+  ul.nav-items {
+    list-style: none;
+    padding: 0;
+
+    .nav-item {
+      a.active {
+        color: red;
+      }
+    }
+  }
 }

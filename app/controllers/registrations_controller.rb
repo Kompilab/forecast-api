@@ -1,3 +1,5 @@
+require 'events/logger'
+
 class RegistrationsController < Devise::RegistrationsController
   respond_to :json
 

@@ -1,4 +1,5 @@
 require 'sendgrid-ruby'
+require 'events/logger'
 
 class AuthMailer < Devise::Mailer
   include SendGrid
