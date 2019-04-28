@@ -7,13 +7,16 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   end
 
   def create
-    new_ft = current_user.financial_transactions.new(financial_transactions_params)
+    transaction = current_user.financial_transactions.new(financial_transactions_params)
 
-    if new_ft.save
-      render json: new_ft,
-             status: :ok
+    if transaction.save
+      render json: transaction,
+             status: :created
     else
-      render json: new_ft.errors,
+      render json: {
+                      errors: transaction.try(:errors),
+                      messages: transaction.try(:errors).try(:full_messages)
+                    },
              status: :unprocessable_entity
     end
   end
