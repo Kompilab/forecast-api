@@ -14,9 +14,9 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
              status: :created
     else
       render json: {
-                      errors: transaction.try(:errors),
-                      messages: transaction.try(:errors).try(:full_messages)
-                    },
+                 errors: transaction.try(:errors),
+                 messages: transaction.try(:errors).try(:full_messages)
+             },
              status: :unprocessable_entity
     end
   end

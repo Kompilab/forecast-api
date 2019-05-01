@@ -9,6 +9,7 @@ class CreateFinancialTransaction < ActiveRecord::Migration[5.2]
       t.float :amount
       t.string :transaction_type
       t.date :transaction_date
+      t.string :source
       t.boolean :deleted, default: false, null: false
 
       t.timestamps
