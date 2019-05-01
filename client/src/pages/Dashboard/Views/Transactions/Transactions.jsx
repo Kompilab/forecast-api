@@ -30,7 +30,7 @@ class Transactions extends Component {
                 <p><em>as of 12:45 pm, 2019-04-28</em></p>
               </div>
 
-              <div className="col-6">
+              <div className="col-6 text-right">
                 <div className="btn-group mr-2" role="group" aria-label="First group">
                   <button type="button" className="btn btn-primary">Add Transaction</button>
                 </div>

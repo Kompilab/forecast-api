@@ -11,7 +11,8 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   end
 
   def create
-    @category = Category.new(category_params)
+    @parent = ParentCategory.find_by(id: category_params[:parent_category_id])
+    @category = @parent.categories.new(category_params)
 
     if @category.save
       render json: @category, status: :created
@@ -47,6 +48,6 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     end
 
     def category_params
-      params.require(:category).permit(:name, :description, :category_type)
+      params.fetch(:category, {}).permit(:name, :description, :parent_category_id)
     end
 end

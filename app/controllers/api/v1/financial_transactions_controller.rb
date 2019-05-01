@@ -30,6 +30,6 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   private
 
   def financial_transactions_params
-    params.require(:financial_transactions).permit(:item, :details, :amount, :transaction_type, :transaction_date, :category_id)
+    params.fetch(:financial_transactions, {}).permit(:item, :details, :amount, :transaction_type, :transaction_date, :category_id, :source)
   end
 end
