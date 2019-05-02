@@ -4,8 +4,8 @@ class CreateFinancialTransaction < ActiveRecord::Migration[5.2]
       t.references :user
       t.references :category
 
-      t.string :item
-      t.text :details
+      t.string :description
+      t.text :notes
       t.float :amount
       t.string :transaction_type
       t.date :transaction_date

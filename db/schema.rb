@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2019_04_28_151146) do
   create_table "financial_transactions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
-    t.string "item"
-    t.text "details"
+    t.string "description"
+    t.text "notes"
     t.float "amount"
     t.string "transaction_type"
     t.date "transaction_date"
