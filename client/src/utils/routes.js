@@ -28,7 +28,13 @@ const apiRoutes = {
       method: 'POST',
       path: '/api/auth/confirmation'
     }
+  },
+  createTransaction: () => {
+    return {
+      method: 'POST',
+      path: '/api/v1/financial_transactions'
+    }
   }
-}
+};
 
 export default apiRoutes

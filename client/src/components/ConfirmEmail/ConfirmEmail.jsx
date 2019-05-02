@@ -45,13 +45,13 @@ class ConfirmEmail extends Component {
     this.setState({loading: true, errors: null});
     e.preventDefault();
 
-    const token = t || this.state.token
+    const token = t || this.state.token;
 
     userAuth.confirmEmail(token, (redirect, error='') => {
       this.setState({
         errors: error,
         loading: false
-      })
+      });
 
       if (redirect) {
         const { history } = this.props;

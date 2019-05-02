@@ -6,7 +6,7 @@ const cookie = new Cookie();
 
 const concatName = data => {
   return data && `${data.first_name} ${data.last_name}`
-}
+};
 
 const userAuth = {
   isAuthenticated: cookie.get('_fo_') && cookie.get('_fo_active_user_'),
@@ -104,12 +104,12 @@ const userAuth = {
       console.log('ERROR:LogOut - ', error)
     }
   }
-}
+};
 
 const formatPayload = data => {
   return {
     user: data
   }
-}
+};
 
 export default userAuth;

@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import './Transactions.scss';
 import Icon from 'react-web-vector-icons';
 import moment from 'moment';
+import transactions from '../../../../services/transactions';
 
 class Transactions extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      transactions: [],
       loading: false,
       errors: null,
 
@@ -33,7 +35,19 @@ class Transactions extends Component {
 
   _handleCreateTransaction(e) {
     e.preventDefault();
-    this.setState({loading: true, error: null});
+    this.setState({loading: true, errors: null});
+
+    transactions.create(this.prepData(this.state), (success, response='') => {
+      this.setState({
+        errors: response,
+        loading: false
+      });
+
+      if (success) {
+        // load all transactions
+        console.log('New transaction => ', response)
+      }
+    })
   }
 
   prepData(raw) {
@@ -66,8 +80,6 @@ class Transactions extends Component {
   render() {
     const { date, loading, errors } = this.state;
     const errorClass = errors ? 'is-invalid' : '';
-
-    console.log(this.state);
 
     return (
       <div>
