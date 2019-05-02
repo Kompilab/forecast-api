@@ -7,7 +7,7 @@ import FormattersHelpers from '../../helpers/formatter_helpers';
 
 class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       redirectToReferrer: false,
@@ -16,7 +16,7 @@ class Login extends Component {
       rememberMe: false,
       error: null,
       loading: false
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this._login = this._login.bind(this);
