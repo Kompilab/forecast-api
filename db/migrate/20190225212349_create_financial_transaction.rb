@@ -10,6 +10,7 @@ class CreateFinancialTransaction < ActiveRecord::Migration[5.2]
       t.string :transaction_type
       t.date :transaction_date
       t.string :source
+      t.string :payment_method # use ActiveRecord::Enum later for this (https://naturaily.com/blog/ruby-on-rails-enum)
       t.boolean :deleted, default: false, null: false
 
       t.timestamps

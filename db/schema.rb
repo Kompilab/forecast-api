@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_151146) do
     t.string "transaction_type"
     t.date "transaction_date"
     t.string "source"
+    t.string "payment_method"
     t.boolean "deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

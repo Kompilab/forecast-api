@@ -4,6 +4,8 @@ class FinancialTransaction < ApplicationRecord
   validates_presence_of :item, :details, :amount, :transaction_type, :transaction_date, :user_id, :category_id, :source
   before_save :set_source
 
+  # payment methods - card_pos, card_web, card_mobile, cash
+
   def set_source
     self.source = source || 'manual'
   end
