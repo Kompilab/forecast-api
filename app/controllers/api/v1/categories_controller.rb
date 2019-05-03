@@ -1,3 +1,5 @@
+require 'events/logger'
+
 class Api::V1::CategoriesController < Api::V1::ApiController
   before_action :set_category, only: [:show, :update, :destroy]
 
@@ -15,6 +17,14 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     @category = @parent.categories.new(category_params)
 
     if @category.save
+      Events::Logger.new(
+          event_name: 'category.create',
+          description: "New category created in #{@parent.name} - #{@category.name}",
+          event_date: Date.today,
+          event_type: 'category',
+          user_id: current_user.id
+      ).log
+
       render json: @category, status: :created
     else
       render json: {

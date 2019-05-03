@@ -1,3 +1,5 @@
+require 'events/logger'
+
 class Api::V1::ParentCategoriesController < Api::V1::ApiController
   before_action :set_parent_category, only: [:show, :update, :destroy]
 
@@ -11,14 +13,22 @@ class Api::V1::ParentCategoriesController < Api::V1::ApiController
   end
 
   def create
-    @parent_category = ParentCategory.new(parent_category_params)
+    parent_category = ParentCategory.new(parent_category_params)
 
-    if @parent_category.save
-      render json: @parent_category, status: :created
+    if parent_category.save
+      Events::Logger.new(
+          event_name: 'parent_category.create',
+          description: "New parent category created - #{parent_category.name}",
+          event_date: Date.today,
+          event_type: 'parent_category',
+          user_id: current_user.id
+      ).log
+
+      render json: parent_category, status: :created
     else
       render json: {
-                      errors: @parent_category.try(:errors),
-                      messages: @parent_category.try(:errors).try(:full_messages)
+                      errors: parent_category.try(:errors),
+                      messages: parent_category.try(:errors).try(:full_messages)
                     },
              status: :unprocessable_entity
     end

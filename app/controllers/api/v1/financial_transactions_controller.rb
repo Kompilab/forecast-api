@@ -1,3 +1,5 @@
+require 'events/logger'
+
 class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   def index
     render json: all_transactions
@@ -10,6 +12,14 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
     transaction = current_user.financial_transactions.new(financial_transactions_params)
 
     if transaction.save
+      Events::Logger.new(
+          event_name: 'transaction.create',
+          description: "New transaction created, id: #{transaction.id}",
+          event_date: Date.today,
+          event_type: 'transaction',
+          user_id: current_user.id
+      ).log
+
       render json: all_transactions,
              status: :created
     else
