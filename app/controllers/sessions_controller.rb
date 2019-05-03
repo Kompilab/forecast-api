@@ -6,13 +6,13 @@ class SessionsController < Devise::SessionsController
   def create
     self.resource = warden.authenticate!(auth_options)
 
-    Events::Logger.new(
-        event_name: 'auth.login',
-        description: "You logged in",
-        event_date: Date.today,
-        event_type: 'login',
-        user_id: resource.id
-    ).log
+    # Events::Logger.new(
+    #     event_name: 'auth.login',
+    #     description: "You logged in",
+    #     event_date: Date.today,
+    #     event_type: 'login',
+    #     user_id: resource.id
+    # ).log
 
     sign_in(resource_name, resource)
     render_resource(resource)
