@@ -1,6 +1,6 @@
 class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   def index
-    render json: FinancialTransaction.order(updated_at: :desc)
+    render json: all_transactions
   end
 
   def show
@@ -10,7 +10,7 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
     transaction = current_user.financial_transactions.new(financial_transactions_params)
 
     if transaction.save
-      render json: transaction,
+      render json: all_transactions,
              status: :created
     else
       render json: {
@@ -31,5 +31,9 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
 
   def financial_transactions_params
     params.fetch(:financial_transactions, {}).permit(:description, :notes, :amount, :transaction_type, :transaction_date, :category_id, :source, :payment_method)
+  end
+
+  def all_transactions
+    FinancialTransaction.order(updated_at: :desc)
   end
 end

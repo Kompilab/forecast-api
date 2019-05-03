@@ -22,9 +22,32 @@ class Transactions extends Component {
       notes: ''
     };
 
+    this._fetchTransactions = this._fetchTransactions.bind(this);
+    this.loadTransactions = this.loadTransactions.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearForm = this.clearForm.bind(this);
     this._handleCreateTransaction = this._handleCreateTransaction.bind(this);
+  }
+
+  componentDidMount() {
+    if (!this.state.transactions.length) {
+      this._fetchTransactions()
+    }
+  }
+
+  _fetchTransactions() {
+    this.setState({loading: true});
+
+    transactions.getAll((success, response=[]) => {
+      this.setState({
+        loading: false,
+        transactions: response
+      });
+
+      if (!success) {
+        this.setState({errors: response})
+      }
+    })
   }
 
   handleChange(e) {
@@ -38,14 +61,25 @@ class Transactions extends Component {
     this.setState({loading: true, errors: null});
 
     transactions.create(this.prepData(this.state), (success, response='') => {
-      this.setState({
-        errors: response,
-        loading: false
-      });
-
       if (success) {
-        // load all transactions
-        console.log('New transaction => ', response)
+        console.log('success===> ', response);
+        this.setState({
+          transactions: response,
+          date: moment().format('YYYY-MM-DD'),
+          description: '',
+          amount: '',
+          type: '',
+          category_id: '',
+          payment_method: '',
+          notes: '',
+          loading: false,
+          errors: null
+        })
+      } else {
+        this.setState({
+          errors: response,
+          loading: false
+        });
       }
     })
   }
@@ -77,9 +111,31 @@ class Transactions extends Component {
     })
   }
 
+  loadTransactions(data) {
+    if (!data.length) {
+      return (
+        <div>
+          <p>There are no transactions</p>
+        </div>
+      )
+    }
+
+    return data.map((tx, $i) => {
+      return (
+        <ul key={$i} className="list-group">
+          <li className="list-group-item">
+            Date: {tx.transaction_date} | Transaction: {tx.description} | Amount: {tx.amount} | Type: {tx.transaction_type} | Source: {tx.source} | Payment Method: {tx.payment_method} | Notes: {tx.notes}
+          </li>
+        </ul>
+      )
+    })
+  }
+
   render() {
-    const { date, loading, errors } = this.state;
+    const { date, loading, errors, transactions } = this.state;
     const errorClass = errors ? 'is-invalid' : '';
+
+    console.log(this.state);
 
     return (
       <div>
@@ -191,14 +247,14 @@ class Transactions extends Component {
                 </div>
               </div>
 
-              <div className="actions text-right">
-                <div className="btn-group mr-2" role="group" aria-label="cancel button">
+              <div className="actions form-row">
+                <div className="btn-group col-md-6 mb-2" role="group" aria-label="cancel button">
                   <button onClick={this.clearForm} type="button" className="btn btn-secondary btn-block">
                     Cancel
                   </button>
                 </div>
 
-                <div className="btn-group mr-2" role="group" aria-label="submit button">
+                <div className="btn-group col-md-6 mb-2" role="group" aria-label="submit button">
                   <button onClick={this._handleCreateTransaction} type="submit" className="btn btn-primary btn-fo-primary btn-block" disabled={loading}>
                     {
                       loading ? (
@@ -222,7 +278,17 @@ class Transactions extends Component {
           </div>
 
           <div className="transactions-list">
-            Display all transactions, remember to paginate
+            {
+              loading ? (
+                <div>
+                  <p>Loading transactions</p>
+                </div>
+              ) : (
+                <div>
+                  { this.loadTransactions(transactions) }
+                </div>
+              )
+            }
           </div>
         </section>
       </div>

@@ -29,6 +29,12 @@ const apiRoutes = {
       path: '/api/auth/confirmation'
     }
   },
+  transactions: () => {
+    return {
+      method: 'GET',
+      path: '/api/v1/financial_transactions'
+    }
+  },
   createTransaction: () => {
     return {
       method: 'POST',

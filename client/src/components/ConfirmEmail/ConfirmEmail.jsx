@@ -7,14 +7,14 @@ import FormattersHelpers from '../../helpers/formatter_helpers';
 
 class ConfirmEmail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       token: '',
       errors: null,
       loading: false,
       inputDisabled: false
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this._confirmEmail = this._confirmEmail.bind(this);
@@ -29,7 +29,7 @@ class ConfirmEmail extends Component {
       this.setState({
         token: token,
         inputDisabled: true
-      })
+      });
 
       this._confirmEmail({preventDefault: () => {}}, token)
     }
