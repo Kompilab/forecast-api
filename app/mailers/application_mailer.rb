@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'kompilab.17@gmail.com'
+  default from: 'contact@kompilab.com'
   layout 'mailer'
 end

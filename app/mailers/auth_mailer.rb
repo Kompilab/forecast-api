@@ -4,8 +4,8 @@ require 'events/logger'
 class AuthMailer < Devise::Mailer
   include SendGrid
   include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
-  default from: 'Kompilab <kompilab.17@gmail.com>'
-  default reply_to: 'Kompilab <kompilab.17@gmail.com>'
+  default from: 'Kompilab <contact@kompilab.com>'
+  default reply_to: 'Kompilab <contact@kompilab.com>'
 
   layout 'mailer'
 
@@ -17,7 +17,7 @@ class AuthMailer < Devise::Mailer
       # used locally by :letter_opener
       mail(to: @user.email, subject: "#{@user.first_name}, confirm your email")
     else
-      from = Email.new(email: 'kompilab.17@gmail.com')
+      from = Email.new(email: 'contact@kompilab.com')
       to = Email.new(email: @user.email)
       subject = "#{@user.first_name}, confirm your email"
 
