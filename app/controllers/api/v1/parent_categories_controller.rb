@@ -4,7 +4,17 @@ class Api::V1::ParentCategoriesController < Api::V1::ApiController
   before_action :set_parent_category, only: [:show, :update, :destroy]
 
   def index
-    @parent_categories = ParentCategory.all
+    if params[:with_categories]
+      @parent_categories = ParentCategory.select(:id, :name).map do |parent_category|
+        {
+            parent_category: parent_category,
+            categories: parent_category.categories.select(:id, :name)
+        }
+      end
+    else
+      @parent_categories = ParentCategory.select(:id, :name)
+    end
+
     render json: @parent_categories, status: :ok
   end
 
@@ -53,13 +63,14 @@ class Api::V1::ParentCategoriesController < Api::V1::ApiController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_parent_category
-      @parent_category = ParentCategory.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def parent_category_params
-      params.fetch(:parent_category, {}).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_parent_category
+    @parent_category = ParentCategory.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def parent_category_params
+    params.fetch(:parent_category, {}).permit(:name)
+  end
 end
