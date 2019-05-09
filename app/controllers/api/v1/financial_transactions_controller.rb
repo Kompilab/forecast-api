@@ -37,6 +37,11 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   def destroy
   end
 
+  def payment_methods
+    render json: FinancialTransaction::PAYMENT_METHODS,
+           status: :ok
+  end
+
   private
 
   def financial_transactions_params
