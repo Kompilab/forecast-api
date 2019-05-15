@@ -6,7 +6,18 @@ class FinancialTransaction < ApplicationRecord
 
   PAYMENT_METHODS = %w(card card_pos card_web card_mobile cash)
 
+  scope :income, -> { where(transaction_type: 'credit') }
+  scope :expenses, -> { where(transaction_type: 'debit') }
+
   def set_source
     self.source = source || 'manual'
+  end
+
+  def self.total_income
+    income.sum(:amount)
+  end
+
+  def self.total_expenses
+    expenses.sum(:amount)
   end
 end

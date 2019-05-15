@@ -42,6 +42,14 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
            status: :ok
   end
 
+  def calculations
+    render json: {
+               income: FinancialTransaction.total_income,
+               expenses: FinancialTransaction.total_expenses
+           },
+           status: :ok
+  end
+
   private
 
   def financial_transactions_params
