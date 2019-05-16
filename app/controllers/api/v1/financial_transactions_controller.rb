@@ -20,7 +20,7 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
           user_id: current_user.id
       ).log
 
-      render json: all_transactions,
+      render json: transaction,
              status: :created
     else
       render json: {
