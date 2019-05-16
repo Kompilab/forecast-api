@@ -71,6 +71,6 @@ class Api::V1::ParentCategoriesController < Api::V1::ApiController
 
   # Only allow a trusted parameter "white list" through.
   def parent_category_params
-    params.fetch(:parent_category, {}).permit(:name)
+    params.fetch(:parent_category, {}).permit(:name, :description)
   end
 end
