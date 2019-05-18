@@ -63,7 +63,10 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   def format_category_name(transactions)
     transactions.map do |t|
       tx = t.as_json
-      tx.merge({category_name: t.category.name})
+      tx.merge({
+        category_name: t.category.try(:name),
+        parent_category_name: t.category.parent_category.try(:name)
+      })
     end
   end
 end
