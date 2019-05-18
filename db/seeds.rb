@@ -16,7 +16,8 @@ categories_data = [
             {name: 'Bonus', description: ''},
             {name: 'Interest Income', description: ''},
             {name: 'Reimbursement', description: ''},
-            {name: 'Rental Income', description: ''}
+            {name: 'Rental Income', description: ''},
+            {name: 'Business', description: ''}
         ]
     },
     {
