@@ -57,6 +57,13 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   end
 
   def all_transactions
-    FinancialTransaction.order(updated_at: :desc)
+    format_category_name(FinancialTransaction.order(updated_at: :desc))
+  end
+
+  def format_category_name(transactions)
+    transactions.map do |t|
+      tx = t.as_json
+      tx.merge({category_name: t.category.name})
+    end
   end
 end
