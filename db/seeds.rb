@@ -184,12 +184,12 @@ categories_data = [
     }
 ]
 
-if ParentCategory.count == 0
+# if ParentCategory.count == 0
   categories_data.each do |data|
-    parent = ParentCategory.create(data[:parent])
+    parent = ParentCategory.find_or_create_by(data[:parent])
     parent.categories.create(data[:categories])
     print '.'
   end
 
   puts "\nDone seeding parent categories with sub categories."
-end
+# end
