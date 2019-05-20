@@ -182,6 +182,13 @@ categories_data = [
             {name: 'Sales Tax', description: ''},
             {name: 'Property Tax', description: ''}
         ]
+    },
+    {
+        parent: {name: 'Events & Activities', description: ''},
+        categories: [
+            {name: 'Wedding', description: ''},
+            {name: 'Tech Meetup', description: ''}
+        ]
     }
 ]
 
