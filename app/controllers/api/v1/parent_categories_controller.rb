@@ -5,7 +5,7 @@ class Api::V1::ParentCategoriesController < Api::V1::ApiController
 
   def index
     if params[:with_categories]
-      @parent_categories = ParentCategory.select(:id, :name).map do |parent_category|
+      @parent_categories = ParentCategory.order(name: :asc).select(:id, :name).map do |parent_category|
         {
             parent_category: parent_category,
             categories: parent_category.categories.select(:id, :name)
