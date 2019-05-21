@@ -13,8 +13,17 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   end
 
   def create
-    @parent = ParentCategory.find_by(id: category_params[:parent_category_id])
-    @category = @parent.categories.new(category_params)
+    if category_params[:parent_category_id] == 'isNew'
+      @parent = ParentCategory.create({name: category_params[:new_parent_name]})
+    else
+      @parent = ParentCategory.find_by(id: category_params[:parent_category_id])
+    end
+
+    @category = @parent.categories.new({
+       name: category_params[:name],
+       description: category_params[:description],
+       parent_category_id: category_params[:parent_category_id]
+    })
 
     if @category.save
       Events::Logger.new(
@@ -58,6 +67,6 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     end
 
     def category_params
-      params.fetch(:category, {}).permit(:name, :description, :parent_category_id)
+      params.fetch(:category, {}).permit(:name, :description, :parent_category_id, :new_parent_name)
     end
 end
