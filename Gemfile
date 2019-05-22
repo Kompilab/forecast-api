@@ -32,6 +32,9 @@ gem 'devise-jwt'
 # SendGrid email client
 gem 'sendgrid-ruby'
 
+# Bank account parser
+gem 'ng-bank-parser', path: './vendor/ng-bank-parser-dev'
+
 group :production, :development do
   # Use postgresql as the database for Active Record in production and development
   gem 'pg', '>= 0.18', '< 2.0'
