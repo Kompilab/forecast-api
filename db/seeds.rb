@@ -24,7 +24,8 @@ categories_data = [
         parent: {name: 'Uncategorized', description: ''},
         categories: [
             {name: 'Cash & ATM', description: ''},
-            {name: 'Check', description: ''}
+            {name: 'Check', description: ''},
+            {name: 'Uncategorized', description: ''}
         ]
     },
     {

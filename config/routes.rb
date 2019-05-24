@@ -25,6 +25,11 @@ Rails.application.routes.draw do
       end
       resources :parent_categories
       resources :categories
+      resource :import_statements, only: [:create] do
+        collection do
+          get :supported_banks
+        end
+      end
     end
   end
 
