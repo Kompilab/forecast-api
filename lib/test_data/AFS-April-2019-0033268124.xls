@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Untitled Page
+</title></head>
+<body>
+    <form name="form1" method="post" action="Usercontrols/AccountStmtExport.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+    <div>
+        <table width="100%">
+            <tr>
+                <td colspan="3">
+                    <table width="100%">
+                        <tr>
+                            <td colspan="3" style="text-align: center; font-weight: bold; font-size: 12pt; color: green; font-family: Verdana;" width="60%">
+                                GUARANTY TRUST BANK PLC<br />
+                                <br />
+                                CUSTOMER STATEMENT<br />
+                                <br />
+                                <span id="lblAcctName" style="color:Black;">ADEBAYO, FIYINFOLUWA SIMEON</span><br />
+                            </td>
+                            <td colspan="1" style="text-align: left" width="40%">
+                                <img id="Image1" src="Images/glogo.gif" border="0" /></td>
+                        </tr>
+                    </table>
+                    <table width="500">
+                        <tr>
+                            <td colspan="2">
+                                Print Date:
+                                <span id="lblDate">22/May/2019</span></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px" width="25%">
+                            </td>
+                            <td style="height: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Address:
+                                <span id="lblAddress">HALL 3 BLK E ROOM 110 UNIBEN EDO STATE</span></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px" width="25%">
+                            </td>
+                            <td style="height: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Account No:
+                                <span id="lblAcctNo">0033268124 - (422/457795/1/59/0)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px" width="25%">
+                            </td>
+                            <td style="height: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px" width="25%" colspan="2">
+                                Currency:<span id="lblCurrency">Naira</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px" width="25%">
+                                &nbsp;</td>
+                            <td style="height: 20px">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Period:
+                                <span id="lblPeriod1">01/Apr/2019      To</span>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                <span id="lblPeriod2">30/Apr/2019</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 21px" colspan="2">
+                                <span id="lblOpenBal">Opening Balance: 16,401.70</span></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table width="849">
+                        <tr>
+                            <td colspan="3">
+                                <table cellspacing="0" cellpadding="3" border="0" id="dgtrans" style="font-family:Verdana;height:141px;width:849px;border-collapse:collapse;">
+	<tr nowrap="nowrap" valign="top" style="color:Green;font-size:X-Small;font-weight:bold;height:18px;">
+		<td style="width:10%;">Trans Date</td><td style="width:10%;">Reference</td><td style="width:10%;">Value Date</td><td align="right" style="width:10%;">Debit</td><td align="right" style="width:10%;">Credit</td><td align="right" style="font-weight:bold;font-style:normal;text-decoration:none;width:10%;">Balance</td><td style="width:30%;">Remarks</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>02-Apr-2019</td><td>9999325469</td><td>01-Apr-2019</td><td align="right">624.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">15,777.70</td><td>POS/WEB PURCHASE TRANSACTION  -325469- -498627-UBER*FLUTTERWAVE TECH  LAGOS ISLAND   NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>02-Apr-2019</td><td>9999367472</td><td>02-Apr-2019</td><td align="right">850.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">14,927.70</td><td>POS/WEB PURCHASE TRANSACTION  -367472- -614422-UBER*FLUTTERWAVE TECH  LAGOS ISLAND   NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>02-Apr-2019</td><td>0</td><td>02-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">14,427.70</td><td>Airtime Purchase USSD-101CT0000000001082413488-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>02-Apr-2019</td><td>9999454255</td><td>02-Apr-2019</td><td align="right">2,800.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">11,627.70</td><td>POS/WEB PURCHASE TRANSACTION  -454255- -177012-3PG00001-EZWASH                     LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>03-Apr-2019</td><td>9999510070</td><td>03-Apr-2019</td><td align="right">1,606.28</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">10,021.42</td><td>POS/WEB PURCHASE TRANSACTION  -510070- -598189-ARTEE INDUSTRIES LIM   LANG           NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>03-Apr-2019</td><td>0</td><td>03-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">9,521.42</td><td>Airtime Purchase USSD-101CT0000000001084152725-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>03-Apr-2019</td><td>0</td><td>03-Apr-2019</td><td align="right">2,500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">7,021.42</td><td>TRANSFER BETWEEN CUSTOMERS MBANKING - Pancakes order ANY Account Transfer   from ADEBAYO, FIYINFOLUWA SIMEON  to  OLAJIDE, ALEX-ONI</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>04-Apr-2019</td><td>0</td><td>04-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">6,521.42</td><td>Airtime Purchase USSD-101CT0000000001086542412-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>08-Apr-2019</td><td>0</td><td>08-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">6,021.42</td><td>Airtime Purchase USSD-101CT0000000001091191866-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>08-Apr-2019</td><td>0</td><td>08-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">5,521.42</td><td>Airtime Purchase USSD-101CT0000000001091130297-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>08-Apr-2019</td><td>0</td><td>08-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">5,021.42</td><td>Airtime Purchase USSD-101CT0000000001091217125-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>08-Apr-2019</td><td>0</td><td>08-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">4,721.42</td><td>Airtime Purchase USSD-101CT0000000001091841875-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>08-Apr-2019</td><td>0</td><td>08-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">4,421.42</td><td>Airtime Purchase USSD-101CT0000000001091919505-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>11-Apr-2019</td><td>0</td><td>11-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,921.42</td><td>Airtime Purchase USSD-101CT0000000001095984024-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>11-Apr-2019</td><td>0</td><td>11-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,421.42</td><td>Airtime Purchase USSD-101CT0000000001095988563-2348034505376</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>12-Apr-2019</td><td>0</td><td>12-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,121.42</td><td>Airtime Purchase USSD-101CT0000000001097630183-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>13-Apr-2019</td><td>0</td><td>13-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">2,821.42</td><td>Airtime Purchase USSD-101CT0000000001099283491-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>13-Apr-2019</td><td>0</td><td>13-Apr-2019</td><td align="right">400.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">2,421.42</td><td>Airtime Purchase USSD-101CT0000000001099507830-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>13-Apr-2019</td><td>0</td><td>13-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">2,121.42</td><td>Airtime Purchase USSD-101CT0000000001100055520-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>15-Apr-2019</td><td>0</td><td>15-Apr-2019</td><td align="right">200.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">1,921.42</td><td>Airtime Purchase USSD-101CT0000000001101415339-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>15-Apr-2019</td><td>0</td><td>15-Apr-2019</td><td align="right">400.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">1,521.42</td><td>Airtime Purchase USSD-101CT0000000001101925497-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>16-Apr-2019</td><td>0</td><td>16-Apr-2019</td><td align="right">&nbsp;</td><td align="right">5,000.00</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">6,521.42</td><td>TRANSFER BETWEEN CUSTOMERS 000014190416151905247676267609|TRF/Spend /FRM FIYINFOLUWA SIMEON ADEBAYO TO ADEBAYO,|VNM6654527150846335|ACCESS|FIYINFOLUWA SIMEON ADEBAYO                          REF:000014190416151905247676267609</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>18-Apr-2019</td><td>0</td><td>18-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">6,221.42</td><td>Airtime Purchase USSD-101CT0000000001106100297-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>9999839863</td><td>18-Apr-2019</td><td align="right">1,050.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">5,171.42</td><td>POS/WEB PURCHASE TRANSACTION  -839863- -847656-UBER*FLUTTERWAVE TECH  LAGOS ISLAND   NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>9999857568</td><td>18-Apr-2019</td><td align="right">1,285.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,886.42</td><td>POS/WEB PURCHASE TRANSACTION  -857568- -926031-UBER*FLUTTERWAVE TECH  LAGOS ISLAND   NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>0</td><td>19-Apr-2019</td><td align="right">500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,386.42</td><td>Airtime Purchase USSD-101CT0000000001108368132-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>0</td><td>19-Apr-2019</td><td align="right">300.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">3,086.42</td><td>Airtime Purchase USSD-101CT0000000001108973563-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>0</td><td>19-Apr-2019</td><td align="right">2,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">1,086.42</td><td>NIBSS Instant Payment Outward 000013190419214231000288770094 DanceFriday TO ZBN/DANCE & ART ALIVE(PROJECT ACC)                                                                               /52.5/REF:00001319041921423100028877009</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>0</td><td>19-Apr-2019</td><td align="right">50.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">1,036.42</td><td>COMMISSION 000013190419214231000288770094 NIP TRANSFER COMMISSION FOR 000013190419214231000288770094 DanceFriday TO ZBN/DANCE & ART ALIVE(PROJECT ACC)                         ReF:000013190419214231000288770094</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>19-Apr-2019</td><td>0</td><td>19-Apr-2019</td><td align="right">2.50</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">1,033.92</td><td>VALUE ADDED TAX  VAT ON NIP TRANSFER FOR 00001</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>20-Apr-2019</td><td>9999957624</td><td>20-Apr-2019</td><td align="right">478.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">555.92</td><td>POS/WEB PURCHASE TRANSACTION  -957624- -666885-UBER*FLUTTERWAVE TECH  LAGOS ISLAND   NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>21-Apr-2019</td><td>0</td><td>21-Apr-2019</td><td align="right">100.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">455.92</td><td>Airtime Purchase USSD-101CT0000000001110641336-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>21-Apr-2019</td><td>0</td><td>21-Apr-2019</td><td align="right">&nbsp;</td><td align="right">10,000.00</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">10,455.92</td><td>TRANSFER BETWEEN CUSTOMERS 000004190421112219295376916514|MOB/UTO/3134867897/000013/Booking|3134867897|UBA|ABOGUNRIN TIMOTHY ADEBAYO                                                           REF:000004190421112219295376916514</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>21-Apr-2019</td><td>9999911683</td><td>21-Apr-2019</td><td align="right">9,952.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">503.92</td><td>POS/WEB PURCHASE TRANSACTION  -911683- -595932-3PG00001-GIGMCOM                    LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>22-Apr-2019</td><td>0</td><td>22-Apr-2019</td><td align="right">200.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">303.92</td><td>Airtime Purchase USSD-101CT0000000001111730786-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>24-Apr-2019</td><td>0</td><td>24-Apr-2019</td><td align="right">200.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">103.92</td><td>Airtime Purchase USSD-101CT0000000001114488286-2348037440924</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>24-Apr-2019</td><td>0</td><td>24-Apr-2019</td><td align="right">&nbsp;</td><td align="right">20,000.00</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">20,103.92</td><td>TRANSFER BETWEEN CUSTOMERS 000012190424173357368932210000|Internet|36893221|STANBIC|FIYINFOLUWA SIMEON ADEBAYO                                                                                 REF:000012190424173357368932210000</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>24-Apr-2019</td><td>9999219322</td><td>24-Apr-2019</td><td align="right">100.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">20,003.92</td><td>PURCHASE/TRANSFER COMMISSION  -219322- -690065-QTBPWSMIL/1610002181/1911490006     LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>24-Apr-2019</td><td>9999219322</td><td>24-Apr-2019</td><td align="right">10,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">10,003.92</td><td>HOME BANKING ACCOUNT TO ACCOUNT TRANSFER  -219322- -690065-QTBPWSMIL/1610002181/1911490006     LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>26-Apr-2019</td><td>1329</td><td>26-Apr-2019</td><td align="right">5,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">5,003.92</td><td>POS/WEB PURCHASE TRANSACTION  -001329- -863959-FORTE OIL PLC          LA           LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>26-Apr-2019</td><td>30</td><td>26-Apr-2019</td><td align="right">212.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">4,791.92</td><td>STANDING ORDER SMS ALERT CHARGE FOR 22MAR2019-25APR2019</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>28-Apr-2019</td><td>0</td><td>28-Apr-2019</td><td align="right">&nbsp;</td><td align="right">50,000.00</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">54,791.92</td><td>TRANSFER BETWEEN CUSTOMERS 000012190428103339371161010000|May 12|37116101|STANBIC|FIYINFOLUWA SIMEON ADEBAYO                                                                                   REF:000012190428103339371161010000</td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>28-Apr-2019</td><td>394558</td><td>28-Apr-2019</td><td align="right">4,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">50,791.92</td><td>POS/WEB PURCHASE TRANSACTION  -394558- -615673-BURGCO ENTERPRISE      LA           LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>28-Apr-2019</td><td>3187</td><td>28-Apr-2019</td><td align="right">1,500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">49,291.92</td><td>POS/WEB PURCHASE TRANSACTION  -003187- -925853-BURGCO ENTERPRISE      LA           LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>29-Apr-2019</td><td>9999465439</td><td>29-Apr-2019</td><td align="right">2,500.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">46,791.92</td><td>POS/WEB PURCHASE TRANSACTION  -465439- -918732-POS - EAT N GO -CSC-   LANG           NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>29-Apr-2019</td><td>9999478590</td><td>29-Apr-2019</td><td align="right">1,008.10</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">45,783.82</td><td>POS/WEB PURCHASE TRANSACTION  -478590- -210558-ARTEE INDUSTRIES LIM   LANG           NG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>30-Apr-2019</td><td>9999138863</td><td>30-Apr-2019</td><td align="right">20,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">25,783.82</td><td>POS/WEB PURCHASE TRANSACTION  -138863- -842260-QTRCWMTNV/08066405173/889372468314  LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>30-Apr-2019</td><td>9999127899</td><td>30-Apr-2019</td><td align="right">&nbsp;</td><td align="right">3,500.00</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">29,283.82</td><td>FUNDS TRANSFER  -127899- -914051-Avengers               /889372473127LANG </td>
+	</tr><tr nowrap="nowrap" style="color:Black;background-color:White;font-family:Verdana;font-size:X-Small;">
+		<td>30-Apr-2019</td><td>0</td><td>30-Apr-2019</td><td align="right">10,000.00</td><td align="right">&nbsp;</td><td align="right" style="font-weight:normal;font-style:normal;text-decoration:none;">19,283.82</td><td>TRANSFER BETWEEN CUSTOMERS MBANKING - Lend ANY Account Transfer   from ADEBAYO, FIYINFOLUWA SIMEON  to  ADEBAYO, OLAOLUWA OLAWALE</td>
+	</tr>
+</table></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                PLEASE ADDRESS ALL ENQUIRIES TO</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                GUARANTY TRUST BANK PLC</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                SYSTEMS AND CONTROL GROUP</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                178, AWOLOWO ROAD, IKOYI</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana;
+                                height: 17px">
+                                P.O.BOX 75455, VICTORIA ISLAND, LAGOS, NIGERIA</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                PHONE&nbsp; 01-2694276&nbsp; FAX&nbsp; 01-2694276</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-weight: bold; font-size: 10pt; color: green; font-family: Verdana">
+                                OR THE CUSTOMER INFORMATION UNIT OF YOUR LOCAL BRANCH</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    </form>
+</body>
+</html>
