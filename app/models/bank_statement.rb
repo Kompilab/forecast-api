@@ -1,0 +1,3 @@
+class BankStatement < ApplicationRecord
+
+end
