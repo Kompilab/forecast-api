@@ -10,27 +10,33 @@ module Transactions
     end
 
     def store
-      transactions = crunch[:data][:transactions]
-      mapped_transactions = transactions.map{|tx| tx_mappings tx}
+      crunched_data = crunch
 
-      begin
-        User.transaction do
-          user.financial_transactions.create!(mapped_transactions)
+      p crunched_data
+
+      if crunched_data[:status] == 200 && crunched_data.dig(:data, :transactions).present?
+        transactions = crunched_data.dig(:data, :transactions)
+        mapped_transactions = transactions.map{|tx| tx_mappings tx}
+
+        begin
+          User.transaction do
+            user.financial_transactions.create!(mapped_transactions)
+          end
+
+
+          Events::Logger.new(
+              event_name: 'transaction.import',
+              description: "Imported #{transactions.count} transactions from your #{bank_key} statement.",
+              event_date: Date.today,
+              event_type: 'transaction',
+              user_id: user.id
+          ).log
+        rescue => e
+          {status: 500, message: "Error occurred saving imported transactions: #{e}"}
         end
-
-
-        Events::Logger.new(
-            event_name: 'transaction.import',
-            description: "Imported #{transactions.count} transactions from your #{bank_key} statement.",
-            event_date: Date.today,
-            event_type: 'transaction',
-            user_id: user.id
-        ).log
-
-        "Success"
-      rescue => e
-        "Error occurred saving imported transactions: #{e}"
       end
+
+      crunched_data
     end
 
     def crunch

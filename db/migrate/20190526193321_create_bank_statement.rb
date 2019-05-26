@@ -9,6 +9,7 @@ class CreateBankStatement < ActiveRecord::Migration[5.2]
       t.date :to_date
       t.jsonb :transactions
       t.text :metadata
+      t.text :statements
 
       t.timestamps
     end
