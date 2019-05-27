@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2019_05_26_193321) do
     t.date "to_date"
     t.jsonb "transactions"
     t.text "metadata"
-    t.text "statements"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
