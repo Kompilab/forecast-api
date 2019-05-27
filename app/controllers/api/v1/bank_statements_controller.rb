@@ -1,4 +1,9 @@
 class Api::V1::BankStatementsController < Api::V1::ApiController
+  def index
+    render json: user_statements.order(updated_at: :desc),
+           status: :ok
+  end
+
   def create
     crunched = Transactions::ImportStatement.new(current_user, import_params).store
 
@@ -26,5 +31,9 @@ class Api::V1::BankStatementsController < Api::V1::ApiController
 
   def import_params
     params.fetch(:import, {}).permit(:bank_key, :file, :password)
+  end
+
+  def user_statements
+    current_user.bank_statements
   end
 end
