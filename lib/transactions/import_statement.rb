@@ -22,7 +22,6 @@ module Transactions
             user.bank_statements.create!(statement_mappings(crunched_data.dig(:data)))
           end
 
-
           Events::Logger.new(
               event_name: 'transaction.import',
               description: "Imported #{transactions.count} transactions from your #{bank_key} statement.",

@@ -44,8 +44,8 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
 
   def calculations
     render json: {
-               income: FinancialTransaction.total_income,
-               expenses: FinancialTransaction.total_expenses
+               income: user_transactions.total_income,
+               expenses: user_transactions.total_expenses
            },
            status: :ok
   end
@@ -56,8 +56,12 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
     params.fetch(:financial_transactions, {}).permit(:description, :notes, :amount, :transaction_type, :transaction_date, :category_id, :source, :payment_method)
   end
 
+  def user_transactions
+    current_user.financial_transactions
+  end
+
   def all_transactions
-    format_category_name(FinancialTransaction.order(updated_at: :desc))
+    format_category_name(user_transactions.order(updated_at: :desc))
   end
 
   def format_category_name(transactions)

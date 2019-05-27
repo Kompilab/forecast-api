@@ -41,7 +41,7 @@ class AuthMailer < Devise::Mailer
 
   def host
     env_hosts = {
-      development: 'localhost:5000',
+      development: 'localhost:3000',
       production: 'https://my-forecast.herokuapp.com'
     }
 
