@@ -5,7 +5,7 @@ module Transactions
     def initialize(user, data = {})
       @user = user
       @bank_key = data[:bank_key]
-      @file_path = data[:file] || Rails.root.join('lib/test_data/AFS-April-2019-0033268124.xls')
+      @file_path = data[:file].tempfile #|| Rails.root.join('lib/test_data/AFS-April-2019-0033268124.xls')
       @password = data[:password]
     end
 
