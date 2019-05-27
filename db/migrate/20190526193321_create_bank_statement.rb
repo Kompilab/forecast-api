@@ -1,6 +1,8 @@
 class CreateBankStatement < ActiveRecord::Migration[5.2]
   def change
     create_table :bank_statements do |t|
+      t.references :user
+
       t.string :account_name
       t.string :account_number
       t.string :bank_name
