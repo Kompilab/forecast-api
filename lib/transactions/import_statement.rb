@@ -12,8 +12,6 @@ module Transactions
     def store
       crunched_data = crunch
 
-      p crunched_data
-
       if crunched_data[:status] == 200 && crunched_data.dig(:data, :transactions).present?
         transactions = crunched_data.dig(:data, :transactions)
         mapped_transactions = transactions.map{|tx| tx_mappings tx}
@@ -21,6 +19,7 @@ module Transactions
         begin
           User.transaction do
             user.financial_transactions.create!(mapped_transactions)
+            user.bank_statements.create!(statement_mappings(crunched_data.dig(:data)))
           end
 
 
@@ -65,6 +64,18 @@ module Transactions
       else
         Category.by_name('uncategorized').try(:id)
       end
+    end
+
+    def statement_mappings(data)
+      {
+          account_name: data[:account_name],
+          account_number: data[:account_number][-4..-1],
+          bank_name: data[:bank_name],
+          bank_key: bank_key,
+          from_date: data[:from_date],
+          to_date: data[:to_date],
+          transactions: data[:transactions]
+      }
     end
   end
 end
