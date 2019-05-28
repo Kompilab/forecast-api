@@ -1,6 +1,6 @@
 class Api::V1::BankStatementsController < Api::V1::ApiController
   def index
-    render json: user_statements.order(updated_at: :desc),
+    render json: user_statements,
            status: :ok
   end
 
@@ -34,6 +34,29 @@ class Api::V1::BankStatementsController < Api::V1::ApiController
   end
 
   def user_statements
-    current_user.bank_statements
+    load_sum(current_user.bank_statements)
+  end
+
+  def load_sum(statements)
+    statements.map do |statement|
+      sums = sum_operation(statement.transactions)
+      s = statement.as_json
+      s.merge(sums)
+    end
+  end
+
+  def sum_operation(transactions)
+    credits = []
+    debits = []
+
+    transactions.map do |t|
+      if t['type'] == 'credit'
+        credits << t['amount']
+      elsif t['type'] == 'debit'
+        debits << t['amount']
+      end
+    end
+
+    {total_credits: credits.sum, total_debits: debits.sum}
   end
 end
