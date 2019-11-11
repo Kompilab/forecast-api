@@ -1,7 +1,7 @@
 class FinancialTransaction < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  validates_presence_of :description, :amount, :transaction_type, :transaction_date, :user_id, :category_id, :source, :payment_method
+  validates_presence_of :description, :amount, :transaction_type, :transaction_date, :user_id, :category_id
   before_save :set_source
 
   PAYMENT_METHODS = %w(card card_pos card_web card_mobile cash)
@@ -11,6 +11,10 @@ class FinancialTransaction < ApplicationRecord
 
   def set_source
     self.source = source || 'manual'
+  end
+
+  def set_payment_method
+    self.payment_method = payment_method || 'cash'
   end
 
   def self.total_income

@@ -9,7 +9,10 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
   end
 
   def create
-    transaction = current_user.financial_transactions.new(financial_transactions_params)
+    # transaction = current_user.financial_transactions.new(financial_transactions_params)
+
+    # todo create transactions for one user first for iOS integration.
+    transaction = temp_user.financial_transactions.new(financial_transactions_params)
 
     if transaction.save
       Events::Logger.new(
@@ -17,7 +20,7 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
           description: "New transaction created, id: #{transaction.id}",
           event_date: Date.today,
           event_type: 'transaction',
-          user_id: current_user.id
+          user_id: temp_user.id
       ).log
 
       render json: transaction,
@@ -52,12 +55,26 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
 
   private
 
+  def temp_user
+    User.find_by(id: 1)
+  end
+
   def financial_transactions_params
-    params.fetch(:financial_transactions, {}).permit(:description, :notes, :amount, :transaction_type, :transaction_date, :category_id, :source, :payment_method)
+    params.fetch(:financial_transactions, {}).permit(
+        :description,
+        :notes,
+        :amount,
+        :transaction_type,
+        :transaction_date,
+        :category_id,
+        :source,
+        :payment_method
+    )
   end
 
   def user_transactions
-    current_user.financial_transactions
+    # current_user.financial_transactions
+    temp_user.financial_transactions
   end
 
   def all_transactions
@@ -68,8 +85,8 @@ class Api::V1::FinancialTransactionsController < Api::V1::ApiController
     transactions.map do |t|
       tx = t.as_json
       tx.merge({
-        category_name: t.category.try(:name),
-        parent_category_name: t.category.parent_category.try(:name)
+        category_name: t.category.try(:name)
+        # parent_category_name: t.category.parent_category.try(:name)
       })
     end
   end
