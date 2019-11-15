@@ -1,10 +1,9 @@
 class Api::V1::ContactsController < Api::V1::ApiController
   before_action :set_contact, only: [:show, :update, :destroy]
+  before_action :set_user_contacts, only: [:index]
 
   # GET /contacts
   def index
-    @contacts = Contact.all
-
     render json: @contacts
   end
 
@@ -50,6 +49,11 @@ class Api::V1::ContactsController < Api::V1::ApiController
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
+    end
+
+    def set_user_contacts
+      # @contacts = current_user.contacts
+      @contacts = temp_user.contacts
     end
 
     # Only allow a trusted parameter "white list" through.
