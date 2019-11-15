@@ -1,0 +1,2 @@
+class LendBorrow < ApplicationRecord
+end

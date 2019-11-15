@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_193321) do
+ActiveRecord::Schema.define(version: 2019_11_15_165402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 2019_05_26_193321) do
     t.index ["parent_category_id"], name: "index_categories_on_parent_category_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "event_name"
     t.text "description"
@@ -86,6 +98,22 @@ ActiveRecord::Schema.define(version: 2019_05_26_193321) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_financial_transactions_on_category_id"
     t.index ["user_id"], name: "index_financial_transactions_on_user_id"
+  end
+
+  create_table "lend_borrows", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "contact_id"
+    t.float "amount"
+    t.text "notes"
+    t.string "status"
+    t.string "type"
+    t.date "date_due"
+    t.date "date"
+    t.boolean "deleted", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_lend_borrows_on_contact_id"
+    t.index ["user_id"], name: "index_lend_borrows_on_user_id"
   end
 
   create_table "parent_categories", force: :cascade do |t|
