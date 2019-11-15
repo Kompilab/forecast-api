@@ -1,10 +1,9 @@
 class Api::V1::LendBorrowsController < Api::V1::ApiController
   before_action :set_lend_borrow, only: [:show, :update, :destroy]
+  before_action :set_user_lend_borrows, only: [:index]
 
   # GET /lend_borrows
   def index
-    @lend_borrows = LendBorrow.all
-
     render json: @lend_borrows
   end
 
@@ -15,7 +14,7 @@ class Api::V1::LendBorrowsController < Api::V1::ApiController
 
   # POST /lend_borrows
   def create
-    lend_borrow = LendBorrow.new(lend_borrow_params)
+    lend_borrow = temp_user.lend_borrows.new(lend_borrow_params)
 
     if lend_borrow.save
       render json: lend_borrow, status: :created
@@ -43,13 +42,22 @@ class Api::V1::LendBorrowsController < Api::V1::ApiController
   end
 
   private
+    def temp_user
+      User.find_by(id: 1)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_lend_borrow
       @lend_borrow = LendBorrow.find(params[:id])
     end
 
+  def set_user_lend_borrows
+    # @lend_borrows = current_user.lend_borrows
+    @lend_borrows = temp_user.lend_borrows
+  end
+
     # Only allow a trusted parameter "white list" through.
     def lend_borrow_params
-      params.require(:lend_borrow).permit(:amount, :notes, :date_due, :date, :status, :type)
+      params.require(:lend_borrow).permit(:amount, :notes, :date_due, :date, :status, :lb_type, :contact_id)
     end
 end

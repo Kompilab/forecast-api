@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_165402) do
     t.float "amount"
     t.text "notes"
     t.string "status"
-    t.string "type"
+    t.string "lb_type"
     t.date "date_due"
     t.date "date"
     t.boolean "deleted", default: false, null: false

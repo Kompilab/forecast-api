@@ -7,7 +7,7 @@ class CreateLendBorrows < ActiveRecord::Migration[5.2]
       t.float :amount
       t.text :notes
       t.string :status
-      t.string :type
+      t.string :lb_type
       t.date :date_due
       t.date :date
       t.boolean :deleted, default: false, null: false
