@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :financial_transactions
   has_many :bank_statements
+  has_many :contacts
+  has_many :lend_borrows
 end

@@ -15,12 +15,16 @@ class Api::V1::ContactsController < Api::V1::ApiController
 
   # POST /contacts
   def create
-    @contact = Contact.new(contact_params)
+    contact = temp_user.contacts.new(contact_params)
 
-    if @contact.save
-      render json: @contact, status: :created, location: @contact
+    if contact.save
+      render json: contact, status: :created
     else
-      render json: @contact.errors, status: :unprocessable_entity
+      render json: {
+                 errors: contact.try(:errors),
+                 messages: contact.try(:errors).try(:full_messages)
+             },
+             status: :unprocessable_entity
     end
   end
 
@@ -39,6 +43,10 @@ class Api::V1::ContactsController < Api::V1::ApiController
   end
 
   private
+    def temp_user
+      User.find_by(id: 1)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])

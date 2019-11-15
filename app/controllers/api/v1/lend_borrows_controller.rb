@@ -15,12 +15,16 @@ class Api::V1::LendBorrowsController < Api::V1::ApiController
 
   # POST /lend_borrows
   def create
-    @lend_borrow = LendBorrow.new(lend_borrow_params)
+    lend_borrow = LendBorrow.new(lend_borrow_params)
 
-    if @lend_borrow.save
-      render json: @lend_borrow, status: :created, location: @lend_borrow
+    if lend_borrow.save
+      render json: lend_borrow, status: :created
     else
-      render json: @lend_borrow.errors, status: :unprocessable_entity
+      render json: {
+                 errors: lend_borrow.try(:errors),
+                 messages: lend_borrow.try(:errors).try(:full_messages)
+             },
+             status: :unprocessable_entity
     end
   end
 
