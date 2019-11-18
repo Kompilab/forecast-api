@@ -53,7 +53,16 @@ class Api::V1::ContactsController < Api::V1::ApiController
 
     def set_user_contacts
       # @contacts = current_user.contacts
-      @contacts = temp_user.contacts
+      @contacts = add_records(temp_user.contacts)
+    end
+
+    def add_records(contacts)
+      contacts.map do |c|
+        cx = c.as_json
+        cx.merge({
+            lendborrow_count: c.lend_borrows.count
+        })
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
