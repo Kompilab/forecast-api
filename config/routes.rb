@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json }, constraints: { :id => /[0-9]+(\%7C[0-9]+)*/ }, except: [:new, :edit] do
     namespace :v1 do
+      resources :aggregators, only: [:index]
       resources :contacts
       resources :financial_transactions do
         member do

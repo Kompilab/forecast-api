@@ -60,7 +60,9 @@ class Api::V1::ContactsController < Api::V1::ApiController
       contacts.map do |c|
         cx = c.as_json
         cx.merge({
-            lendborrow_count: c.lend_borrows.count
+            lendborrow_count: c.lend_borrows.count,
+            total_lent: c.lend_borrows.lent.sum(:amount),
+            total_borrowed: c.lend_borrows.borrowed.sum(:amount)
         })
       end
     end
