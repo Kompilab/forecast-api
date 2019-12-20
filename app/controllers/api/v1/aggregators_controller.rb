@@ -8,12 +8,12 @@ class Api::V1::AggregatorsController < Api::V1::ApiController
 
   def compute_parameters
     {
-        total_lent: temp_user.lend_borrows.lent.sum(:amount),
-        total_borrowed: temp_user.lend_borrows.borrowed.sum(:amount),
+        total_lent: user_lend_borrows.lent.sum(:amount),
+        total_borrowed: user_lend_borrows.borrowed.sum(:amount),
     }
   end
 
-  def temp_user
-    User.find_by(id: 1)
+  def user_lend_borrows
+    current_user.lend_borrows
   end
 end

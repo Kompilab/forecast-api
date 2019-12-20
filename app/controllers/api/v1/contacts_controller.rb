@@ -14,7 +14,7 @@ class Api::V1::ContactsController < Api::V1::ApiController
 
   # POST /contacts
   def create
-    contact = temp_user.contacts.new(contact_params)
+    contact = current_user.contacts.new(contact_params)
 
     if contact.save
       render json: merge_details(contact), status: :created
@@ -43,18 +43,13 @@ class Api::V1::ContactsController < Api::V1::ApiController
 
   private
 
-  def temp_user
-    User.find_by(id: 1)
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
     @contact = Contact.find(params[:id])
   end
 
   def set_user_contacts
-    # @contacts = current_user.contacts
-    @contacts = add_records(temp_user.contacts)
+    @contacts = add_records(current_user.contacts)
   end
 
   def add_records(contacts)
